@@ -3,22 +3,25 @@ import React, { useState, useEffect } from "react";
 import Movie from "../movie/Movie";
 
 const MovieList = ({ movies, loadMore, currentPage, totalResults }) => {
-  const [displayButton, setDisplayButton] = useState(true);
+  const [loadButton, setLoadButton] = useState(true);
 
   useEffect(() => {
-    if (totalResults / 20 === currentPage) {
-      setDisplayButton(false);
+    if (Math.ceil(totalResults) / 20 <= currentPage || totalResults <= 20) {
+      setLoadButton(false);
     } else {
-      setDisplayButton(true);
+      setLoadButton(true);
     }
-  }, [currentPage, totalResults]);
+  }, [totalResults, currentPage]);
 
   return (
     <div>
-      {movies.map(movie => (
-        <Movie key={movie.id} {...movie} />
-      ))}
-      {displayButton && (
+      {totalResults > 0 ? (
+        movies.map(movie => <Movie key={movie.id} {...movie} />)
+      ) : (
+        <h1>No movies found</h1>
+      )}
+
+      {loadButton && (
         <button onClick={() => loadMore(currentPage + 1)}>Load More</button>
       )}
     </div>
