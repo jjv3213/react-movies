@@ -1,14 +1,20 @@
 import React from "react";
+import { Link } from "@reach/router";
 
-const Movie = ({ title, poster_path }) => {
+const Movie = ({ id, title, poster_path }) => {
   return (
     <div>
-      {poster_path == null ? (
-        <img src={""} />
-      ) : (
-        <img src={`http://image.tmdb.org/t/p/w185${poster_path}`} />
-      )}
-      <p>{title}</p>
+      <Link to={`/movie/${id}`}>
+        {poster_path == null ? (
+          <img src={""} alt="" />
+        ) : (
+          <img
+            src={`http://image.tmdb.org/t/p/w185${poster_path}`}
+            alt="movie thumbnail"
+          />
+        )}
+        <p>{title}</p>
+      </Link>
     </div>
   );
 };
