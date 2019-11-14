@@ -9,7 +9,7 @@ const Movie = ({ id, title, poster_path }) => {
           <img src={""} alt="" />
         ) : (
           <img
-            src={`http://image.tmdb.org/t/p/w185${poster_path}`}
+            src={`http://image.tmdb.org/t/p/w200${poster_path}`}
             alt="movie thumbnail"
           />
         )}

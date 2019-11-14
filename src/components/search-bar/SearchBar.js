@@ -1,10 +1,12 @@
 import React from "react";
 
+import { SearchWrapper } from "./SearchBarStyle";
+
 const SearchBar = ({ handleChange }) => {
   return (
-    <div>
+    <SearchWrapper>
       <input type="text" placeholder="Search movie" onChange={handleChange} />
-    </div>
+    </SearchWrapper>
   );
 };
 

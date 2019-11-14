@@ -15,7 +15,7 @@ const MovieDetails = ({ movieId }) => {
       setMovie(res.data);
     };
     getMovie();
-  }, []);
+  }, [movieId]);
 
   const {
     title,
