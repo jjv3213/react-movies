@@ -22,6 +22,7 @@ a:hover,
 a:focus,
 a:active {
   text-decoration: none;
+  cursor: pointer;
 }
 
 ul {

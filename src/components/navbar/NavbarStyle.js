@@ -6,5 +6,8 @@ export const NavWrapper = styled.div`
   align-items: center;
   justify-content: center;
   background-color: black;
-  color: white;
+
+  a {
+    color: white;
+  }
 `;

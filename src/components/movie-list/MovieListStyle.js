@@ -7,7 +7,7 @@ export const MovieListWrapper = styled.div`
   button {
     justify-self: center;
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 10px 50px;
 
     :hover {
       cursor: pointer;

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "@reach/router";
 import axios from "axios";
 
 import { API_KEY } from "../../config/keys";
+import NoImage from "../../img/no-image.png";
+
+import { DetailsWrapper } from "./MovieDetailsStyle";
 
 const MovieDetails = ({ movieId }) => {
   const [movie, setMovie] = useState("");
@@ -13,6 +15,7 @@ const MovieDetails = ({ movieId }) => {
         `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`
       );
       setMovie(res.data);
+      console.log(res.data);
     };
     getMovie();
   }, [movieId]);
@@ -28,29 +31,65 @@ const MovieDetails = ({ movieId }) => {
   } = movie;
 
   return (
-    <div>
-      <Link to="/">Go home</Link>
-      {movie ? (
-        <div>
-          {title ? <h1>{title}</h1> : <h1>Title: Unknown</h1>}
-          {poster_path ? (
-            <img
-              src={`http://image.tmdb.org/t/p/w185${poster_path}`}
-              alt="movie thumbnail"
-            />
-          ) : (
-            <img src={""} alt="" />
-          )}
-          {release_date ? <h1>{release_date}</h1> : ""}
-          {runtime ? <h1>{runtime}min</h1> : ""}
-          {vote_average ? <h1>{vote_average}/10</h1> : ""}
-          {overview ? <h1>{overview}</h1> : <h1>No description available</h1>}
-          {genres ? genres.map(item => <p key={item.id}>{item.name}</p>) : ""}
-        </div>
-      ) : (
-        <h1>Loading</h1>
-      )}
-    </div>
+    <DetailsWrapper url={`http://image.tmdb.org/t/p/w185${poster_path}`}>
+      <div className="overlay">
+        {movie ? (
+          <div className="content">
+            {poster_path ? (
+              <img
+                src={`http://image.tmdb.org/t/p/w400${poster_path}`}
+                alt="movie thumbnail"
+              />
+            ) : (
+              <img src={NoImage} alt="" />
+            )}
+            <div className="sub-content">
+              <div className="header">
+                {title ? (
+                  <h2 className="title">{title}</h2>
+                ) : (
+                  <h2 className="title">Title: Unknown</h2>
+                )}
+                <div className="subheading">
+                  {runtime ? <p className="detail">{runtime}min</p> : ""}
+                  {vote_average ? (
+                    <p className="detail">{vote_average}/10</p>
+                  ) : (
+                    ""
+                  )}
+                </div>
+              </div>
+              <div className="details">
+                {overview ? (
+                  <p className="overview">{overview}</p>
+                ) : (
+                  <p className="overview">No description available</p>
+                )}
+                <div className="extras">
+                  {release_date ? (
+                    <p className="detail">Release date: {release_date}</p>
+                  ) : (
+                    ""
+                  )}
+                  <div className="genres">
+                    <p className="detail">Genres: </p>
+                    {genres
+                      ? genres.map(item => (
+                          <p key={item.id} className="detail genre">
+                            {item.name}
+                          </p>
+                        ))
+                      : ""}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <h1>Loading</h1>
+        )}
+      </div>
+    </DetailsWrapper>
   );
 };
 
