@@ -25,4 +25,8 @@ export const HomeWrapper = styled.div`
     background: ${colors.secondaryColor};
     color: white;
   }
+
+  .loading {
+    justify-self: center;
+  }
 `;

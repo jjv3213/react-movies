@@ -69,4 +69,9 @@ export const DetailsWrapper = styled.div`
     color: white;
     padding: 20px 50px;
   }
+
+  .loading {
+    display: grid;
+    justify-items: center;
+  }
 `;

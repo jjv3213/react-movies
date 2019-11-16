@@ -20,4 +20,9 @@ export const MovieListWrapper = styled.div`
     grid-gap: 2rem;
     justify-items: center;
   }
+
+  h2 {
+    color: white;
+    font-size: 2rem;
+  }
 `;

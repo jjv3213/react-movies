@@ -3,6 +3,7 @@ import axios from "axios";
 
 import { API_KEY } from "../../config/keys";
 import NoImage from "../../img/no-image.png";
+import Spinner from "../../img/spinner.gif";
 
 import { DetailsWrapper } from "./MovieDetailsStyle";
 
@@ -86,7 +87,9 @@ const MovieDetails = ({ movieId }) => {
             </div>
           </div>
         ) : (
-          <h1>Loading</h1>
+          <div className="loading">
+            <img src={Spinner} alt="loading spinner" />
+          </div>
         )}
       </div>
     </DetailsWrapper>

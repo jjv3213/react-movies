@@ -21,7 +21,7 @@ const MovieList = ({ movies, totalResults, currentPage, loadMore }) => {
         {totalResults > 0 ? (
           movies.map(movie => <Movie key={movie.id} {...movie} />)
         ) : (
-          <h1>No movies found</h1>
+          <h2>No movies found</h2>
         )}
       </div>
       {loadButton && (

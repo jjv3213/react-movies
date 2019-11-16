@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import Spinner from "../../img/spinner.gif";
 import { API_KEY } from "../../config/keys";
 
 import SearchBar from "../search-bar/SearchBar";
@@ -112,7 +112,7 @@ const Home = () => {
       </div>
 
       {loading ? (
-        <h1>Loading</h1>
+        <img className="loading" src={Spinner} alt="loading spinner" />
       ) : (
         <MovieList
           movies={movies}
