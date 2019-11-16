@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { colors } from "../../global/utils/styles";
+
 export const HomeWrapper = styled.div`
   padding: 2rem 3rem;
   display: grid;
@@ -20,7 +22,7 @@ export const HomeWrapper = styled.div`
   }
 
   .selected {
-    background: black;
+    background: ${colors.secondaryColor};
     color: white;
   }
 `;

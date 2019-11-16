@@ -1,5 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
+import { mainFont, colors } from "./utils/styles";
+
 export const GlobalStyle = createGlobalStyle`
 *,
 *::before,
@@ -14,7 +16,8 @@ html {
 }
 
 body {
-  background: grey;
+  background: ${colors.primaryColor};
+  ${mainFont}
 }
 
 a,
@@ -34,5 +37,10 @@ select:focus,
 textarea:focus,
 button:focus {
     outline: none;
+}
+
+button {
+  background-color: ${colors.tertiaryColor};
+  border: none;
 }
 `;
