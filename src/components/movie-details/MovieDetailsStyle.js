@@ -52,7 +52,7 @@ export const DetailsWrapper = styled.div`
   }
 
   .genre {
-    margin-right: 2px;
+    margin: 0 3px;
   }
 
   .overlay {
